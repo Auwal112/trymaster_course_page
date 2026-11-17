@@ -1,0 +1,501 @@
+
+    /* --- CSS Variables & Reset --- */
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --bg-light: #f8fafc;
+      --surface: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --accent: #f59e0b;
+      --radius: 10px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* --- 1. Top Navigation --- */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--text-main);
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 420px;
+      display: flex;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      background: var(--bg-light);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-bar input:focus {
+      border-color: var(--primary);
+      background: var(--surface);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-login {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .btn-login:hover {
+      color: var(--primary);
+    }
+
+    .btn-cart {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-cart:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* --- 2. Hero Section --- */
+    .hero {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #ffffff;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      max-width: 750px;
+      margin: 0 auto 16px;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* --- 3. Category Filter Bar --- */
+    .categories {
+      padding: 32px 0 16px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-pill {
+      padding: 8px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .cat-pill:hover,
+    .cat-pill.active {
+      background: var(--text-main);
+      color: #ffffff;
+      border-color: var(--text-main);
+    }
+
+    /* --- 4. Course Catalog Grid --- */
+    .catalog-section {
+      padding: 24px 0 64px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+
+    .section-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .course-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Lightweight CSS Thumbnails */
+    .thumb {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #ffffff;
+      position: relative;
+    }
+
+    .thumb-1 { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+    .thumb-2 { background: linear-gradient(135deg, #10b981, #047857); }
+    .thumb-3 { background: linear-gradient(135deg, #8b5cf6, #5b21b6); }
+    .thumb-4 { background: linear-gradient(135deg, #f59e0b, #b45309); }
+    .thumb-5 { background: linear-gradient(135deg, #ec4899, #be185d); }
+    .thumb-6 { background: linear-gradient(135deg, #06b6d4, #0e7490); }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.8);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .course-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .instructor {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .rating span {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .price small {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-left: 4px;
+    }
+
+    .btn-buy {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-buy:hover {
+      background: var(--primary-dark);
+    }
+
+    /* --- 5. Trust & Social Proof Strip --- */
+    .trust-strip {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      text-align: center;
+    }
+
+    .trust-item h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .trust-item p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* --- 6. Footer --- */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 48px 0 24px;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col a:hover {
+      color: #ffffff;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid #1e293b;
+      font-size: 0.85rem;
+    }
+
+    /* --- Pure CSS Slide-Out Cart Drawer --- */
+    #cart-toggle {
+      display: none;
+    }
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s;
+      z-index: 200;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -380px;
+      width: 100%;
+      max-width: 360px;
+      height: 100vh;
+      background: var(--surface);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.25s ease;
+      z-index: 201;
+      box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    #cart-toggle:checked ~ .cart-overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #cart-toggle:checked ~ .cart-drawer {
+      right: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .close-cart {
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .cart-items {
+      flex: 1;
+      padding: 20px 0;
+      overflow-y: auto;
+}
+.cart-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-bottom: 16px;
+margin-bottom: 16px;
+border-bottom: 1px solid var(--border);
+}
+cart-item-title {
+font-weight: 600;
+font-size: 0.95rem;
+}
+.cart-footer {
+border-top: 1px solid var(--border);
+padding-top: 16px;
+}
+.cart-total {
+display: flex;
+justify-content: space-between;
+font-weight: 800;
+font-size: 1.1rem;
+margin-bottom: 16px;
+}
+
+/* --- Mobile Adjustments --- */
+@media (max-width: 640px) {
+.search-bar {
+display: none;
+}
+.hero {
+padding: 56px 0;
+}
+}
