@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In or Sign Up — SkillForge</title>
+  <link rel="stylesheet" href="index.css">
+  <script src="https://jquery.com"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-wrapper">
+      <a href="index.html" class="logo">Skill<span>Forge</span></a>
+      <a href="index.html" class="btn-login">&larr; Back to Courses</a>
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 440px; padding: 64px 20px;">
+    <div style="background: var(--surface); padding: 32px; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow);">
+      
+      <!-- Tab Switcher -->
+      <div style="display: flex; gap: 10px; margin-bottom: 24px;">
+        <button id="tab-login" class="cat-pill active" style="flex: 1; cursor: pointer;">Log In</button>
+        <button id="tab-signup" class="cat-pill" style="flex: 1; cursor: pointer;">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <h2 style="margin-bottom: 16px;">Welcome Back</h2>
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;">Email Address</label>
+          <input type="email" name="email" required placeholder="you@example.com" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;">Password</label>
+          <input type="password" name="password" required placeholder="••••••••" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px;">
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Log In</button>
+      </form>
+
+      <!-- Signup Form (Hidden by Default) -->
+      <form id="signup-form" style="display: none;">
+        <h2 style="margin-bottom: 16px;">Create Your Account</h2>
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;">Full Name</label>
+          <input type="text" name="name" required placeholder="Amina Bello" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px;">
+        </div>
+        <div style="margin-bottom: 14px;">
+          <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;">Email Address</label>
+          <input type="email" name="email" required placeholder="you@example.com" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 6px;">Password</label>
+          <input type="password" name="password" required placeholder="Create a strong password" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px;">
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Create Account</button>
+      </form>
+
+    </div>
+  </main>
+
+  <script>
+    $(document).ready(function () {
+      $('#tab-login').on('click', function () {
+        $(this).addClass('active');
+        $('#tab-signup').removeClass('active');
+        $('#signup-form').hide();
+        $('#login-form').show();
+      });
+
+      $('#tab-signup').on('click', function () {
+        $(this).addClass('active');
+        $('#tab-login').removeClass('active');
+        $('#login-form').hide();
+        $('#signup-form').show();
+      });
+    });
+  </script>
+</body>
+</html>
